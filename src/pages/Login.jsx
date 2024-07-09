@@ -1,9 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -24,14 +25,7 @@ function Confyde() {
 
 const theme = createTheme();
 
-export default function Login() {
-  const navigate = useNavigate(); // Initialize useNavigate
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    navigate('/choosegen'); // Navigate to ChooseGenre page
-  };
-
+export default function SignIn() {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -50,7 +44,13 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }} onSubmit={handleSubmit}>
+          <p>
+            Welcome! {''}
+            <Link href="#" variant="body2">
+              Login
+            </Link>
+          </p>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -73,7 +73,8 @@ export default function Login() {
               id="password"
               autoComplete="current-password"
             />
-            <Button
+            
+            <Button href='/choosegen'
               type="submit"
               fullWidth
               variant="contained"
@@ -82,13 +83,14 @@ export default function Login() {
             >
               Login
             </Button>
+        
             <Grid container>
               <Grid item xs />
               <Grid item />
             </Grid>
           </Box>
           <p>
-            Don't have an account?{' '}
+            Don't have an account? {''}
             <Link href="/signup" variant="body2">
               Sign Up
             </Link>
@@ -101,3 +103,5 @@ export default function Login() {
     </ThemeProvider>
   );
 }
+
+
